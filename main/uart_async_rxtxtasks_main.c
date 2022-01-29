@@ -91,7 +91,7 @@ void app_main(void)
                     NULL,       /* Task handle. */
                     1  /* Core where the task should run */
     );
-    Serial.println("Task created...");
+    //Serial.println("Task created...");
 
     // xTaskCreate(rx_task, "uart_rx_task", 1024*2, NULL, configMAX_PRIORITIES, NULL);
     // xTaskCreate(tx_task, "uart_tx_task", 1024*2, NULL, configMAX_PRIORITIES-1, NULL);
