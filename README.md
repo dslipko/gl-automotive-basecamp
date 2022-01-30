@@ -1,3 +1,20 @@
+# Step by step task solution.
+
+- [x] Use UART Asynchronous Example with Separate Receive and Transfer Tasks.
+- [x] Pin tasks to different cores.
+- [ ] Add TFT simple test output.
+- [ ] Add TFT text output.
+- [ ] Implement 'struct' of data.
+- [ ] Send 'struct' of data.
+- [ ] Receive 'struct' of data.
+- [ ] Parse input data.
+- [ ] Validate input data.
+- [ ] Display on TFT valid received data 'struct'.
+- [ ] Test stability of HW and SW.
+ 
+
+
+
 # UART Asynchronous Example with Separate Receive and Transfer Tasks
 
 (See the README.md file in the upper level 'examples' directory for more information about examples.)
