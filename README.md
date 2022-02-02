@@ -2,7 +2,7 @@
 
 - [x] Use UART Asynchronous Example with Separate Receive and Transfer Tasks.
 - [x] Pin tasks to different cores.
-- [ ] Add TFT simple test output.
+- [x] Add TFT simple test output.
 - [ ] Add TFT text output.
 - [ ] Implement 'struct' of data.
 - [ ] Send 'struct' of data.

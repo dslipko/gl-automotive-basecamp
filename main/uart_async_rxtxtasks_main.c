@@ -13,9 +13,13 @@
 #include "driver/uart.h"
 #include "string.h"
 #include "driver/gpio.h"
-#include "tft.c"
+#include "lvgl.h"
+#include "lvgl_output.c"
+
+
 
 static const int RX_BUF_SIZE = 1024;
+lv_obj_t * ta1;
 
 #define TXD_PIN (GPIO_NUM_17)
 #define RXD_PIN (GPIO_NUM_16)
@@ -69,6 +73,7 @@ static void rx_task(void *arg)
     free(data);
 }
 
+
 void app_main(void)
 {
     init();
@@ -78,7 +83,7 @@ void app_main(void)
                     "uart_rx_task", /* Name of the task */
                     1024*2,      /* Stack size in words */
                     NULL,       /* Task input parameter */
-                    configMAX_PRIORITIES,          /* Priority of the task */
+                    configMAX_PRIORITIES-2,          /* Priority of the task */
                     NULL,       /* Task handle. */
                     0  /* Core where the task should run */
     );
@@ -91,6 +96,16 @@ void app_main(void)
                     configMAX_PRIORITIES-1,          /* Priority of the task */
                     NULL,       /* Task handle. */
                     1  /* Core where the task should run */
+    );
+
+      xTaskCreatePinnedToCore(
+                    guiTask,   /* Function to implement the task */
+                    "gui_task", /* Name of the task */
+                    4092*2,      /* Stack size in words */
+                    NULL,       /* Task input parameter */
+                    configMAX_PRIORITIES,          /* Priority of the task */
+                    NULL,       /* Task handle. */
+                    0  /* Core where the task should run */
     );
     //Serial.println("Task created...");
 
